@@ -15,7 +15,7 @@ dp = Dispatcher(bot, storage=storage)
 
 
 class Form(StatesGroup):
-    snils = State(),
+    snils = State()
 
 
 @dp.message_handler(commands=['start'])
