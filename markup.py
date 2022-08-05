@@ -2,7 +2,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardBut
 from aiogram.utils.callback_data import CallbackData
 from config import UNIVERSITIES
 
-un_data = CallbackData('data', 'action', 'name')  # CALLBACK FOR UN
+data_cb = CallbackData('data', 'action', 'name')  # CALLBACK FOR UN
 
 
 # btnMain = KeyboardButton('Главное меню')
@@ -19,8 +19,9 @@ navMainMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(
 # universityMenu = ReplyKeyboardMarkup()
 
 
-mainMenu = InlineKeyboardMarkup(row_width=4)
+mainMenu = InlineKeyboardMarkup(row_width=6)
 
 for university in UNIVERSITIES:
+    print('INSERTED')
     mainMenu.insert(InlineKeyboardButton(
-        text=university["name"], callback_data=un_data.new(name=university["callback"], action="Execute")))
+        text=university["name"], callback_data=data_cb.new(action="click", name=university["callback"])))
